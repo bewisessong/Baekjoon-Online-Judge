@@ -7,6 +7,12 @@
 
 using namespace std;
 
+void copyStack(string &str, stack<int> &stack)
+{
+  for (int idx = str.size() - 1; idx >= 0; idx--)
+    stack.push(str[idx]);
+}
+
 int main()
 {
   string a, b;
@@ -28,11 +34,8 @@ int main()
     b.substr(1);
   }
 
-  for (int idx = a.size() - 1; idx >= 0; idx--)
-    stackA.push(a[idx]);
-
-  for (int idx = b.size() - 1; idx >= 0; idx--)
-    stackB.push(b[idx]);
+  copyStack(a, stackA);
+  copyStack(b, stackB);
 
   return 0;
 }
